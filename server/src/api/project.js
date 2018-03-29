@@ -1,24 +1,26 @@
-const router = require('express').Router();
-const mongoose = require('mongoose');
+import express from 'express';
+import mongoose from "mongoose";
+import jwt from 'jsonwebtoken';
+import config from '../utils/config';
+import {isAuthenticate, isParamsAreEmptyOrUndefined} from '../utils/functions';
+
 const Project = mongoose.model('Project');
 const User = mongoose.model("User");
-const userUtils = require("../utils/userUtils")
-const genericUtils = require("../utils/genericUtils")
-const jwt = require("jsonwebtoken");
-const config = require("../utils/config");
 
-router.get("/", userUtils.isClient, (req, res) =>{
+var router = express.Router();
+
+router.get("/", isAuthenticate, (req, res) =>{
     Project.find().then((projects) =>{
         return res.status(200).send({projects: projects})
     })
 })
 
-router.post("/", userUtils.isClient, (req, res) =>{
+router.post("/", isAuthenticate, (req, res) =>{
     var data = {
         name: req.body.name,
         link: req.body.link,
     }
-    if (genericUtils.isParamsAreEmptyOrUndefined(data)){
+    if (isParamsAreEmptyOrUndefined(data)){
         return res.status(400);
     }
     else if(req.session.isAdmin){

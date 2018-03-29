@@ -1,6 +1,6 @@
 
 var Config = {
-    superSecret: "itsABeautifulSecret",
+    superSecret: "itsABeautifullSecret",
     SALT: 42, 
 }
 

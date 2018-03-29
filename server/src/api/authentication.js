@@ -1,10 +1,12 @@
-const router = require('express').Router();
-const mongoose = require('mongoose');
+import express from 'express';
+import mongoose from 'mongoose';
+import jwt from 'jsonwebtoken';
+import config from '../utils/config';
+import { isAuthenticate } from '../utils/functions';
+
 const User = mongoose.model("User");
-const userUtils = require("../utils/userUtils")
-const genericUtils = require("../utils/genericUtils")
-const jwt = require("jsonwebtoken");
-const config = require("../utils/config");
+
+var router = express.Router();
 
 
 router.post("/", (req, res) =>{
@@ -38,7 +40,7 @@ router.post("/", (req, res) =>{
 
 
 //Disconnect user
-router.get("/logOut", userUtils.isClient, (req, res) =>{
+router.get("/logOut", isAuthenticate, (req, res) =>{
     res.clearCookie("token");
     res.status(200).send({success:true})
 })
