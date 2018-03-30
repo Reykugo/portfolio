@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {addFlashMessage} from '../redux/actions/flashMessages';
 import {Redirect} from 'react-router-dom';
 
+//This component is based on HOC and it used like middleware to check is user isAuthenticated before to access to protected route
 export default function(ComposedComponent){
     class Authenticate extends Component{
         componentWillMount(){

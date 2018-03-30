@@ -4,6 +4,7 @@ import favicon from 'serve-favicon';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import  mongoose from 'mongoose';
+import isEmpty from 'lodash/isEmpty';
 
 var app = express();
 
@@ -16,6 +17,7 @@ app.use(cookieParser());
 //Require models
 require("./models/User");
 require("./models/Project");
+require("./models/Data");
 
 const api = require("./api/")
 app.use("/api", api);
@@ -24,9 +26,17 @@ app.use("/api", api);
 //Connect to database
 mongoose.Promise = global.Promise;
 mongoose.set('debug',true);
-mongoose.connect('mongodb://localhost/training-react', function(err){
+mongoose.connect('mongodb://localhost/portfolio', function(err){
   if(err) {
     throw err;
+  }else{
+    //create default Data model
+    var Data = mongoose.model("Data");
+    Data.find().then( findedData =>{
+      if(isEmpty(findedData)){
+        new Data().save().catch(e=>{throw e})
+      }
+    })
   }
 })
 

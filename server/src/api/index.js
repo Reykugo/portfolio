@@ -6,6 +6,7 @@ var router = require('express').Router();
 
 router.use("/project", require("./project"));
 router.use("/authentication",require("./authentication"));
+router.use("/data", require("./data"))
 
 module.exports = router;
 

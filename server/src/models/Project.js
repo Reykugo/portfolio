@@ -2,9 +2,7 @@
 This file is used to create schema of Project for bdd
 */
 
-var mongoose = require('mongoose')
-var bcrypt = require('bcrypt-nodejs')
-var config = require("../utils/config")
+import mongoose from 'mongoose';
 var Schema = mongoose.Schema; //Create mongoose Schema
 
 var schema = new Schema({
