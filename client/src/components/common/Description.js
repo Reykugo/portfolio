@@ -32,7 +32,7 @@ class Description extends React.Component{
                 {!isEdit ? <p className="paragraph">{content}</p> : <TextArea content={content} isEdited={this.isEdited}/> }
                 
                 {isAuthenticated && user.isAdmin && !isEdit &&
-                    <div className="form-group"><button className="btn btn-primary btn-lg" onClick={this.edit}>Edit</button></div>}
+                    <div className="form-group"><button className="btn btn-secondary btn-sm" onClick={this.edit}>Edit</button></div>}
             </div>
         )
     }

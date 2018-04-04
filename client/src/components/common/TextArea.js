@@ -39,10 +39,10 @@ class TextArea extends React.Component {
         const {description, isLoading} = this.state;
         return(
             <div className="container">
+                <textarea form="TextAreaForm" className="form-control" rows="5" name="description" value={description} onChange={this.onChange}></textarea>
                 <form onSubmit={this.onSubmit} id="TextAreaForm">
-                    <div className="form-group"><button disabled={isLoading} className="btn btn-primary btn-lg">Update</button></div>
+                    <div className="form-group"><button disabled={isLoading} className="btn btn-primary btn-sm">Update</button></div>
                 </form>
-                    <textarea form="TextAreaForm" className="paragraph" name="description" value={description} onChange={this.onChange}></textarea>
             </div>
         )
     }

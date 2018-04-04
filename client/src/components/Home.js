@@ -16,7 +16,6 @@ class Home extends React.Component {
 	getHomeDesc(){
 		this.props.getHomeDescription().then(
 			(res) =>{
-				console.log(res)
 				this.setState({homeDescription: res.data.homeDescription})
 			},
 			(err)=>{console.log(err.response)}
