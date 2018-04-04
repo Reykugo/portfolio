@@ -4,6 +4,7 @@ import TextFieldGroup from '../common/TextFieldGroup';
 import {connect} from 'react-redux'
 import {login} from '../../redux/actions/authentication';
 import {Redirect} from 'react-router-dom';
+import {addFlashMessage} from '../../redux/actions/flashMessages'
 
 class LoginForm extends Component{
     constructor(props){
@@ -24,7 +25,10 @@ class LoginForm extends Component{
         this.setState({error: '', isLoading: true});
         this.props.login(this.state).then(
             (res) => this.setState({redirect: true}),
-            (err) => this.setState({error: err.response.data, isLoading:false})
+            (err) => {
+                this.setState({isLoading:false});
+                this.props.addFlashMessage({type:'error', text: err.response.data.error})
+            }
         );
     }
 
@@ -33,7 +37,7 @@ class LoginForm extends Component{
     }
 
     render(){
-        const {username, password, isLoading, error} = this.state;
+        const {username, password, isLoading} = this.state;
         if (this.state.redirect){
             return(
                 <Redirect to="/" push={true}/>
@@ -42,8 +46,6 @@ class LoginForm extends Component{
         return (
             <form onSubmit={this.onSubmit}>
                 <h1>Login</h1>
-
-                {error && <div disabled={isLoading} className="alert alert-danger">{error} </div>}
 
                 <TextFieldGroup
                     field="username"
@@ -58,14 +60,15 @@ class LoginForm extends Component{
                     onChange={this.onChange}
                     type="password"
                 />
-                <div className="form-group"><button disabled={this.state.isLoading} className="btn btn-primary btn-lg">Login</button></div>
+                <div className="form-group"><button disabled={isLoading} className="btn btn-primary btn-lg">Login</button></div>
             </form>
         )
     }
 }
 
 LoginForm.propTypes ={
-    login: Proptypes.func.isRequired
+    login: Proptypes.func.isRequired,
+    addFlashMessage: Proptypes.func.isRequired
 }
 
-export default connect(null, {login})(LoginForm);
+export default connect(null, {login, addFlashMessage})(LoginForm);

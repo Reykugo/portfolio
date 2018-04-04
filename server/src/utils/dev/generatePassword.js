@@ -2,7 +2,7 @@
  This file is used to generate encrypted password to create a admin
 */
 const bcrypt = require("bcrypt-nodejs")
-const config = require("./config")
+const config = require("../config")
 
 var password = process.argv[2]
 if(!password == undefined || !password == ""){

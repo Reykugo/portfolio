@@ -11,7 +11,7 @@ var router = express.Router();
 
 router.post("/", (req, res) =>{
     var data = req.body;
-    User.findOne({"username": data.username}, function(err, user){
+    User.findOne({username: data.username}, function(err, user){
         if(user){
             user.comparePasswords( data.password, function(err, isMatch){
                 if(isMatch){
@@ -29,11 +29,11 @@ router.post("/", (req, res) =>{
                     // return the information including token as JSON
                     res.status(200).json({token:token, sucess:true}); 
                 }else{
-                    res.status(400).send("Invalid credential");
+                    res.status(400).send({error:"Invalid credential"});
                 }
             })
         }else{
-            res.status(400).send("Invalid credential");
+            res.status(400).send({error:"Invalid credential"});
         }
     })
 })

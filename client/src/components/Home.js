@@ -1,12 +1,13 @@
 import React from 'react';
-import TextArea from './common/TextArea';
+import Description from './common/Description';
 import {connect} from 'react-redux'
 import {getHomeDescription} from '../redux/actions/getData'
 class Home extends React.Component {
 	constructor(props){
 		super(props)
 		this.state = {
-			homeDescription: ""
+			homeDescription: "",
+			isLoading:false,
 		}
 		this.getHomeDesc = this.getHomeDesc.bind(this)
 		this.getHomeDesc();
@@ -28,7 +29,7 @@ class Home extends React.Component {
 			<div className="container">
 				<div className="row">
 					<div className="col">
-						<TextArea content={homeDescription}/>
+						<Description getDescription={this.getHomeDesc} content={homeDescription}/>
 					</div>
 					<div className="col">
 					</div>
@@ -37,6 +38,5 @@ class Home extends React.Component {
 		);
 	}
 }
-
 
 export default connect(null, {getHomeDescription})(Home);

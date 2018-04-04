@@ -15,7 +15,7 @@ mongoose.connect('mongodb://localhost/portfolio', function(err){
     if(!findedUser){
         var user = new User({name:"admin",username:"admin",
         email:"admin@admin.com",
-        password:"$2a$10$428iWE67cAFfWTfbvLWAE.YvNYtdzM/aD66d.sEDDpX16IqKPTLGC",
+        password:"admin",
         admin:true,})
         user.save().catch(e=>{throw e})
         }
