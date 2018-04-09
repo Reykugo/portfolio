@@ -2,9 +2,9 @@
 import axios from 'axios';
 
 
-export function getHomeDescription(){
+export function getProfileDescription(){
     return dispatch => {
-        return axios.get("/api/data/homeDescription");
+        return axios.get("/api/data/profileDescription");
     }
     
 }

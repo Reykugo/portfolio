@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import NavigationBar from './NavigationBar';
 import FlashMessagesList from './flash/FlashMessagesList';
-
 class App extends Component {
   render() {
     return (
@@ -13,6 +12,4 @@ class App extends Component {
     );
   }
 }
-//export default (App);
-//export with react-hot-loader to work
 export default App;

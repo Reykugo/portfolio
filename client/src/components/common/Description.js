@@ -29,7 +29,13 @@ class Description extends React.Component{
         const {content} = this.props;
         return(
             <div>
-                {!isEdit ? <p className="paragraph">{content}</p> : <TextArea content={content} isEdited={this.isEdited}/> }
+                {!isEdit ? <p className="paragraph">{content}</p> : 
+                <TextArea 
+                    content={content} 
+                    isEdited={this.isEdited}
+                    setDescription ={this.props.setDescription}
+                    propertyName={this.props.propertyName}
+                  /> }
                 
                 {isAuthenticated && user.isAdmin && !isEdit &&
                     <div className="form-group"><button className="btn btn-secondary btn-sm" onClick={this.edit}>Edit</button></div>}
@@ -42,7 +48,9 @@ class Description extends React.Component{
 Description.propTypes = {
     content: PropTypes.string.isRequired,
     auth: PropTypes.object.isRequired,
-    getDescription: PropTypes.func.isRequired
+    getDescription: PropTypes.func.isRequired,
+    setDescription: PropTypes.func.isRequired,
+    propertyName: PropTypes.string.isRequired
 
 }
 

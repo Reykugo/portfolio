@@ -1,41 +1,14 @@
 import React from 'react';
-import Description from './common/Description';
-import {connect} from 'react-redux'
-import {getHomeDescription} from '../redux/actions/getData'
+import Profile from './Profile'
+import "./css/Home.css";
+
+
 class Home extends React.Component {
-	constructor(props){
-		super(props)
-		this.state = {
-			homeDescription: "",
-			isLoading:false,
-		}
-		this.getHomeDesc = this.getHomeDesc.bind(this)
-		this.getHomeDesc();
-	}
-
-	getHomeDesc(){
-		this.props.getHomeDescription().then(
-			(res) =>{
-				this.setState({homeDescription: res.data.homeDescription})
-			},
-			(err)=>{console.log(err.response)}
-		)
-	}
-
 	render() {
-		const {homeDescription} = this.state;
 		return (
-			<div className="container">
-				<div className="row">
-					<div className="col">
-						<Description getDescription={this.getHomeDesc} content={homeDescription}/>
-					</div>
-					<div className="col">
-					</div>
-				</div>
-			</div>
+			<Profile/>
 		);
 	}
 }
 
-export default connect(null, {getHomeDescription})(Home);
+export default Home;

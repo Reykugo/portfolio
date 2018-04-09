@@ -1,9 +1,9 @@
 //import {GET_HOME_DESCRIPTION} from './types';
 import axios from 'axios';
 
-export function setHomeDescription(data){
+export function setProfileDescription(data){
     return dispatch => {
-        return axios.post("/api/data/homeDescription", data);
+        return axios.post("/api/data/profileDescription", data);
     }
     
 }

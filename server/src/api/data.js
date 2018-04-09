@@ -7,21 +7,21 @@ var router = express.Router();
 var Data = mongoose.model('Data');
 
 
-router.get('/homeDescription', (req, res)=>{
+router.get('/profileDescription', (req, res)=>{
     Data.findOne().then((data)=>{
         if(data){
-            return res.status(200).send({success:true, homeDescription:data.homeDescription})
+            return res.status(200).send({success:true, profileDescription:data.profileDescription})
         }else{
             return res.status(404).send({error:"not found"});
         }
     })
 })
 
-router.post('/homeDescription', isAuthenticate, (req, res)=>{
+router.post('/profileDescription', isAuthenticate, (req, res)=>{
     if(req.session.isAdmin){
         Data.findOne().then((data)=>{
             if(data){
-                data.homeDescription = req.body.homeDescription;
+                data.profileDescription = req.body.profileDescription;
                 data.save().then( saved_data =>{
                     return res.status(200).send({success:true})
                 }).catch(e =>{

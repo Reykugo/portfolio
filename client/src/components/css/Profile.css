@@ -1,0 +1,16 @@
+#about{
+    background-color:#4357AD;
+    text-align:center;
+    padding-top:100px;
+    color:white;
+}
+
+.profile-picture {
+    text-align: center;
+    margin: 0 auto;
+    float: none;
+}
+
+#about .heading h3 {
+    color: #ddd;
+}

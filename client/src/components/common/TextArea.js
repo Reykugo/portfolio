@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-import {setHomeDescription} from '../../redux/actions/sendData'
+import {connect} from 'react-redux'
 import {addFlashMessage} from '../../redux/actions/flashMessages'
-
 
 class TextArea extends React.Component {
     constructor(props){
@@ -19,8 +17,10 @@ class TextArea extends React.Component {
     onSubmit(e){
         e.preventDefault();
         this.setState({isLoading: true});
-
-        this.props.setHomeDescription({homeDescription:this.state.description}).then(
+        const propertyName = this.props.propertyName
+        var jsonVar = {}
+        jsonVar[propertyName] = this.state.description
+        this.props.setDescription(jsonVar).then(
             (res) => {
                 this.setState({isloading:false});
                 this.props.isEdited();
@@ -50,9 +50,10 @@ class TextArea extends React.Component {
 
 TextArea.propTypes = {
     content: PropTypes.string.isRequired,
-    setHomeDescription: PropTypes.func.isRequired,
+    setDescription: PropTypes.func.isRequired,
+    propertyName: PropTypes.string.isRequired,
     isEdited:PropTypes.func.isRequired,
     addFlashMessage: PropTypes.func.isRequired
 }
 
-export default connect(null, {setHomeDescription, addFlashMessage})(TextArea);
+export default connect(null, {addFlashMessage})(TextArea);
