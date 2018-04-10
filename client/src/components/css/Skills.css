@@ -4,3 +4,36 @@
     padding-top:100px;
     color:white;
 }
+
+.skill{
+    max-height:100px;
+    line-height: 100px;
+    /*background-color: #F1F1FB;
+    border-radius: 20%;*/
+}
+
+.skillsContainer{
+    background-color: #F1F1FB;
+    border: 3px solid #C6D8FF;
+    border-radius: 20px;
+    margin:10px;
+}
+
+.skillsCategory{
+    color: #ddd;
+    margin:10px
+}
+
+#skills img{
+    max-width:120px;
+    max-height:60px;
+    height: auto;
+}
+
+#skills img:hover{
+    max-width:120px;
+    max-height:60px;
+    height: auto;
+    background-color:white;
+    border-radius:10px;
+}
