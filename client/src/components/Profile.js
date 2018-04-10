@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux'
 import {getProfileDescription} from '../redux/actions/getData'
 import {setProfileDescription} from '../redux/actions/sendData'
-import "./css/Profile.css";
+import "../css/Profile.css";
 
 class Profile extends React.Component {
 	constructor(props){
@@ -29,7 +29,7 @@ class Profile extends React.Component {
 	render() {
 		const {profileDescription} = this.state;
 		return (
-			<section id="about" className="container-fluid">
+			<section id="about">
 				<div className="col-xs-6 col-sm-5 col-md-3 profile-picture">
 					<img src="./img/profile.jpg" alt="Guillaume" className="thumbnail profile-picture"/>
 				</div>
@@ -37,7 +37,7 @@ class Profile extends React.Component {
 					<h1>GUILLAUME NOUGIER</h1>
 					<h3>Développeur Full Stack</h3>
 				</div>
-				<div className="col-xs-6 col-sm-5 col-md-3 profile-picture">
+				<div className="container">
                     <Description
                         getDescription={this.getProfileDescription} 
                         setDescription={this.props.setProfileDescription} 

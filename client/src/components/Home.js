@@ -1,7 +1,7 @@
 import React from 'react';
 import Profile from './Profile'
-import Skills from './Skills'
-import "./css/Home.css";
+import Skills from './skills/Skills'
+import "../css/Home.css";
 
 
 class Home extends React.Component {

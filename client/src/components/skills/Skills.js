@@ -1,6 +1,6 @@
 import React from "react"
-import Skill from "./common/Skill"
-import './css/Skills.css'
+import '../../css/Skills.css'
+import SkillsCategory from "./SkillsCategory" 
 
 //only for test
 const skillsData = {
@@ -20,22 +20,8 @@ class Skills extends React.Component{
                     <h2>Compétences</h2>
                     <div className="container">
                         <div className="row">
-                            <div className ="col-md-6">
-                                <div className="skillsCategory"><h3>BACK END</h3></div>
-                                <div className="row skillsContainer">
-                                    {skillsData.backend.map((skill, i)=>(
-                                        <Skill skill={skill} key={i}/>
-                                    ))}
-                                </div>
-                            </div>
-                            <div className= "col-md-6">
-                                <div className="skillsCategory"><h3>FRONT END</h3></div>
-                                <div className="row skillsContainer">
-                                    {skillsData.frontend.map((skill, i)=>(
-                                        <Skill skill={skill} key={i}/>
-                                    ))}
-                                </div>
-                            </div>
+                            <SkillsCategory categoryName = "BACK END" skills = {skillsData.backend} />
+                            <SkillsCategory categoryName = "FRONT END" skills = {skillsData.frontend} />
                         </div>
                     </div>
                 </div>

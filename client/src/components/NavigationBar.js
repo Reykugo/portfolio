@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {logout}  from '../redux/actions/authentication'
-import "../components/css/Navbar.css"
+import "../css/Navbar.css"
 
 class NavigationBar extends Component{
 

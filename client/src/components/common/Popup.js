@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import  '../css/Popup.css';
+import  '../../css/Popup.css';
 
 class Popup extends React.Component{
     render(){
         return(
-            <div className="modal fade" id="myModal" role="dialog">
+            <div className="modal fade" id={this.props.id} role="dialog">
                 <div className="modal-dialog modal-sm">
                     <div className="modal-content">
                         <div className="modal-header">
@@ -25,6 +25,7 @@ class Popup extends React.Component{
 Popup.propTypes = {
     description: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired
 }
 
 export default Popup;
