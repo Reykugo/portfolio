@@ -15,29 +15,23 @@ class NavigationBar extends Component{
         const {isAuthenticated} = this.props.auth;
 
         const userLinks = (
-            <li><a href='#about' onClick={this.logout.bind(this)}>LOGOUT</a></li>
+            <li className="nav-item"><a  className="nav-link" href='#about' onClick={this.logout.bind(this)}>LOGOUT</a></li>
         );
 
         return (
-            <nav className="navbar navbar-default navbar-fixed-top">
-                <div className="container">
-                    <div className="navbar-header">
-                        <button className="navbar-toggle" type="button" data-toggle="collapse" data-target="#myNavbar" aria-expanded="false">
-                            <span className="icon-bar"></span>
-                            <span className="icon-bar"></span>
-                            <span className="icon-bar"></span>
-                        </button>
-                    </div>
-                    <div id="myNavbar" className="collapse navbar-collapse">
-                        <ul className="nav navbar-nav">
-                            <li className="active"><a href="#about" >Mon profil</a></li>
-                            <li><a href="#skills">Compétences</a></li>
-                            <li><a href="#experience">Expériences</a></li>
-                            <li><a href="#education">Formations</a></li>
-                            <li><a href="#portfolio">Portfolio</a></li>
-                            {isAuthenticated && userLinks}
-                        </ul>
-                    </div>
+            <nav className="navbar navbar-expand-sm fixed-top  navbar-dark bg-dark">
+                <button className="navbar-toggler collapsed navbar-toggler-right" type="button" data-toggle="collapse" data-target="#myNavbar" aria-controls="myNavBar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
+                </button>
+                <div id="myNavbar" className="collapse navbar-collapse">
+                    <ul className="navbar-nav  mx-auto">
+                        <li className="nav-item"><a className="nav-link" href="#about" >Mon profil</a></li>
+                        <li className="nav-item"><a className="nav-link" href="#skills">Compétences</a></li>
+                        <li className="nav-item"><a className="nav-link" href="#experience">Expériences</a></li>
+                        <li className="nav-item"><a className="nav-link" href="#education">Formations</a></li>
+                        <li className="nav-item"><a  className="nav-link" href="#portfolio">Portfolio</a></li>
+                        {isAuthenticated && userLinks}
+                    </ul>
                 </div>
             </nav>
         )

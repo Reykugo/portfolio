@@ -4,7 +4,7 @@ import FlashMessagesList from './flash/FlashMessagesList';
 class App extends Component {
   render() {
     return (
-      <div className="container">
+      <div>
         <NavigationBar/>
         <FlashMessagesList/>
         {this.props.children}

@@ -18,11 +18,11 @@ class Skills extends React.Component{
             <section id="skills">
                 <div className="heading">
                     <h2>Compétences</h2>
-                    <div className="container">
-                        <div className="row">
-                            <SkillsCategory categoryName = "BACK END" skills = {skillsData.backend} />
-                            <SkillsCategory categoryName = "FRONT END" skills = {skillsData.frontend} />
-                        </div>
+                </div>
+                <div className="container">
+                    <div className="row">
+                        <SkillsCategory categoryName = "BACK END" skills = {skillsData.backend} />
+                        <SkillsCategory categoryName = "FRONT END" skills = {skillsData.frontend} />
                     </div>
                 </div>
             </section>

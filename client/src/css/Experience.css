@@ -1,0 +1,20 @@
+#experience{
+    background-color:#7C77B9;
+    padding-top:100px;
+    color:white;
+}
+
+.vertical-timeline-element-content {
+    color: black;
+}
+
+.vertical-timeline-element--work .vertical-timeline-element-content {
+    border-top: 3px solid #2196f3;
+    box-sizing: content-box; /*to ovverride bootstrap effect*/
+    background-color: #F1F1FB;
+}
+
+.vertical-timeline-element--education .vertical-timeline-element-content {
+    border-top: 3px solid #e91e63;
+    box-sizing: content-box; /*to ovverride bootstrap effect*/
+}

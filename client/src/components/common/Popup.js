@@ -9,8 +9,8 @@ class Popup extends React.Component{
                 <div className="modal-dialog modal-sm">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <button type="button" className="close" data-dismiss="modal">&times;</button>
                             <h4 className="modal-title">{this.props.title}</h4>
+                            <button type="button" className="close" data-dismiss="modal">&times;</button>
                         </div>
                             <div className="modal-body">
                             <p dangerouslySetInnerHTML={{__html: this.props.description}}></p>
