@@ -1,6 +1,6 @@
-import React from "react"
-import '../../css/Skills.css'
-import SkillsCategory from "./SkillsCategory" 
+import React from "react";
+import '../../css/Skills.css';
+import SkillsCategory from "./SkillsCategory";
 
 //only for test
 const skillsData = {

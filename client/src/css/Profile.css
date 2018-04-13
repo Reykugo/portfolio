@@ -9,6 +9,7 @@
     text-align: center;
     margin: 0 auto;
     float: none;
+    border-radius: 100%;
 }
 
 #about .heading h3 {

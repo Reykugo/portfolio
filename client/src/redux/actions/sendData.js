@@ -7,3 +7,9 @@ export function setProfileDescription(data){
     }
     
 }
+
+export function setSkill(skill, SkillCategory){
+    return dispatch => {
+        return axios.post("/api/data/skill", {category:SkillCategory, skill:skill});
+    }
+}
