@@ -15,7 +15,7 @@
     border: 3px solid #C6D8FF;
     border-radius: 20px;
     margin:10px;
-    height: -webkit-fill-available;
+    /*height: -webkit-fill-available;*/
 }
 
 .skillsCategory{
