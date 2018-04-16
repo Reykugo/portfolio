@@ -37,7 +37,7 @@ class Profile extends React.Component {
 					<h1>GUILLAUME NOUGIER</h1>
 					<h3>Développeur Full Stack</h3>
 				</div>
-				<div className="container">
+				<div id="homeDesription" className="container">
                     <Description
                         getDescription={this.getProfileDescription} 
                         setDescription={this.props.setProfileDescription} 

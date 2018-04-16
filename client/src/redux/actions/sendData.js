@@ -8,8 +8,8 @@ export function setProfileDescription(data){
     
 }
 
-export function setSkill(skill, SkillCategory){
+export function setSkill(skill, skillCategory){
     return dispatch => {
-        return axios.post("/api/data/skill", {category:SkillCategory, skill:skill});
+        return axios.post("/api/data/skill", {category:skillCategory, skill:skill});
     }
 }

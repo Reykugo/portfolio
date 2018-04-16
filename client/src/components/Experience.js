@@ -20,7 +20,7 @@ class Experience extends React.Component{
         return(
             <section id="experience">
                 <div className="heading">
-                    <h2>Expérience</h2>
+                    <h2>Expérience et formations</h2>
                 </div>
                 <VerticalTimeline>
                     {experiencesData.reverse().map((experience, i)=>(

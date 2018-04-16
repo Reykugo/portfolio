@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 const TextFieldGroup = ({field, value, label, type, onChange}) =>{
     return (
         <div className="form-group">
-            <label className="control-label">{label}</label>
             <input 
                 type={type} 
                 name={field}
@@ -12,6 +11,7 @@ const TextFieldGroup = ({field, value, label, type, onChange}) =>{
                 value={value}
                 onChange={onChange}
                 required="true"
+                placeholder={label}
             />
         </div>
     )
