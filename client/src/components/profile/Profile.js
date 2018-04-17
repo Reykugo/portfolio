@@ -1,33 +1,22 @@
 import React from 'react';
-import Description from './common/Description';
+import Description from './Description';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux'
-import {getProfileDescription} from '../redux/actions/getData'
-import {setProfileDescription} from '../redux/actions/sendData'
-import "../css/Profile.css";
+import {getProfileDescription} from '../../redux/actions/getData'
+import {setProfileDescription} from '../../redux/actions/sendData'
+import "../../css/Profile.css";
 
 class Profile extends React.Component {
 	constructor(props){
 		super(props)
 		this.state = {
-			profileDescription: "",
 			isLoading:false,
 		}
-		this.getProfileDescription = this.getProfileDescription.bind(this)
-		this.getProfileDescription();
-	}
-
-	getProfileDescription(){
-		this.props.getProfileDescription().then(
-			(res) =>{
-				this.setState({profileDescription: res.data.profileDescription})
-			},
-			(err)=>{console.log(err.response)}
-		)
+		this.props.getProfileDescription();
 	}
 
 	render() {
-		const {profileDescription} = this.state;
+		const {profileDescription} = this.props;
 		return (
 			<section id="about">
 				<div className="col-xs-6 col-sm-5 col-md-3 profile-picture">
@@ -39,7 +28,7 @@ class Profile extends React.Component {
 				</div>
 				<div id="homeDesription" className="container">
                     <Description
-                        getDescription={this.getProfileDescription} 
+                        getDescription={this.props.getProfileDescription} 
                         setDescription={this.props.setProfileDescription} 
                         content={profileDescription}
                         propertyName="profileDescription"
@@ -52,7 +41,14 @@ class Profile extends React.Component {
 
 Profile.propTypes ={
     getProfileDescription: PropTypes.func.isRequired,
-    setProfileDescription: PropTypes.func.isRequired
+	setProfileDescription: PropTypes.func.isRequired,
+	profileDescription: PropTypes.string.isRequired,
 }
 
-export default connect(null, {getProfileDescription, setProfileDescription})(Profile);
+function mapStateToProps(state){
+    return{
+        profileDescription: state.profileDescription
+    }
+}
+
+export default connect(mapStateToProps, {getProfileDescription, setProfileDescription})(Profile);

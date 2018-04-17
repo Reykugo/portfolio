@@ -1,5 +1,5 @@
 .navbar{
-  background-color: #4357AD !important;
+  background-color: #3c4859 !important;
   font-size: 12px;
   letter-spacing: 4px;
   text-transform: uppercase;
@@ -13,8 +13,9 @@
 }
 
 .navbar-nav li a:hover{
-  color: #4357AD !important;
+  color: #3c4859 !important;
   background-color: #fff !important;
+  border-radius:100%
 }
 
 

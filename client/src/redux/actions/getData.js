@@ -1,4 +1,4 @@
-import {SET_SKILLS} from './types';
+import {SET_SKILLS, SET_PROFILE_DESCRIPTION} from './types';
 import axios from 'axios';
 
 export function storeSkills(skills){
@@ -15,8 +15,17 @@ export function getSkills(){
     }
 }
 
+export function storeProfileDescription(description){
+    return {
+        type: SET_PROFILE_DESCRIPTION,
+        description
+    }
+}
+
 export function getProfileDescription(){
     return dispatch => {
-        return axios.get("/api/data/profileDescription");
+        return axios.get("/api/data/profileDescription").then(response =>{
+            dispatch(storeProfileDescription(response.data.profileDescription))
+        });
     }
 }

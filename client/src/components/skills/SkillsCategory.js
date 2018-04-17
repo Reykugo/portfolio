@@ -5,11 +5,13 @@ import Skill from "./Skill"
 const SkillsCategory = ({category, categoryName, skills}) =>{
     return(
         <div className ="col-md-6">
-            <div className="skillsCategory"><h3>{categoryName}</h3></div>
-            <div className="row skillsContainer">
-                {skills.map((skill, i)=>(
-                    <Skill category={category} skill={skill} key={i}/>
-                ))}
+            <div className="skillsContainer">
+                <div className="skillsCategory"><h3>{categoryName}</h3></div>
+                <div className="row ">
+                    {skills.map((skill, i)=>(
+                        <Skill category={category} skill={skill} key={i}/>
+                    ))}
+                </div>
             </div>
         </div>
     )

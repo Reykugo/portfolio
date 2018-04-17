@@ -1,5 +1,5 @@
 #experience{
-    background-color:#7C77B9;
+    background-color:#DCDCE5;
     padding-top:100px;
     color:white;
 }
@@ -11,7 +11,6 @@
 .vertical-timeline-element--work .vertical-timeline-element-content {
     border-top: 3px solid #2196f3;
     box-sizing: content-box; /*to ovverride bootstrap effect*/
-    background-color: #F1F1FB;
 }
 
 .vertical-timeline-element--education .vertical-timeline-element-content {

@@ -122,18 +122,14 @@ router.put("/skill", isAuthenticate, (req, res) =>{
     }
 })
 
-router.get("/skills", isAuthenticate, (req, res) =>{
-    if(req.session.isAdmin){
-        Data.findOne().then((data)=>{
-            if (data){
-                return res.status(200).send({success:true, skills: data.skills});
-            }else{
-                return res.status(404).send({error: "Not found"});
-            }
-        })
-    }else{
-        return res.status(403).send({error: "Permission Denied"});
-    }
+router.get("/skills", (req, res) =>{
+    Data.findOne().then((data)=>{
+        if (data){
+            return res.status(200).send({success:true, skills: data.skills});
+        }else{
+            return res.status(404).send({error: "Not found"});
+        }
+    })
 })
 
 
