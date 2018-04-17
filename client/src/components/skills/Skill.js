@@ -10,7 +10,7 @@ class Skill extends React.Component {
         const {isAuthenticated, user} = this.props.auth;
         const category = this.props.category
         return(
-            <div className="col-md-4">
+            <div className="col-md-4 text-center">
                 {description !== "" && <Popup id={name+ category+"Modal"} description={description} title={name}/>}
                 <SkillForm id={name+ category+ "ModalEdit"} category={category} skill={this.props.skill} mode="edit"/>
                 <div className="skill"><img src={img} alt={alt} data-toggle="modal" data-target={"#"+ name + category + "Modal"}/></div>

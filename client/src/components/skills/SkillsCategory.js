@@ -7,7 +7,7 @@ const SkillsCategory = ({category, categoryName, skills}) =>{
         <div className ="col-md-6">
             <div className="skillsContainer">
                 <div className="skillsCategory"><h3>{categoryName}</h3></div>
-                <div className="row ">
+                <div className="row justify-content-center">
                     {skills.map((skill, i)=>(
                         <Skill category={category} skill={skill} key={i}/>
                     ))}
