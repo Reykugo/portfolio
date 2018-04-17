@@ -19,20 +19,29 @@ class Profile extends React.Component {
 		const {profileDescription} = this.props;
 		return (
 			<section id="about">
-				<div className="col-xs-6 col-sm-5 col-md-3 profile-picture">
-					<img src="./img/profile.jpg" alt="Guillaume" className="thumbnail profile-picture"/>
-				</div>
-				<div className="heading">
-					<h1>GUILLAUME NOUGIER</h1>
-					<h3>Développeur Full Stack</h3>
-				</div>
-				<div id="homeDesription" className="container">
-                    <Description
-                        getDescription={this.props.getProfileDescription} 
-                        setDescription={this.props.setProfileDescription} 
-                        content={profileDescription}
-                        propertyName="profileDescription"
-                    />
+				<div className="container">
+					<div className="heading">
+						<h2>à propos</h2>
+					</div>
+					<div className="row">
+						<div className="col-md-4 profile-picture">
+							<img src="./img/profile.jpg" alt="Guillaume"/>
+						</div>
+						<div className = "col-md-8 description">
+							<div className="heading">
+								<h3>Guillaume Nougier</h3>
+								<h5>Développeur Full Stack</h5>
+							</div>
+							<div id="homeDescription">
+								<Description
+									getDescription={this.props.getProfileDescription} 
+									setDescription={this.props.setProfileDescription} 
+									content={profileDescription}
+									propertyName="profileDescription"
+								/>
+							</div>
+						</div>
+					</div>
 				</div>
 			</section>
 		);

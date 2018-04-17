@@ -1,22 +1,52 @@
 #about{
     background-color:#C14953;
-    text-align:center;
     padding-top:100px;
     color:white;
+    text-align:center
 }
 
 .profile-picture {
     text-align: center;
-    margin: 0 auto;
+    margin:  auto;
     float: none;
-    border-radius: 100%;
 }
 
 #about .heading h3 {
     color: #ddd;
 }
 
+
 .profile-picture img{
-    max-width: 100%;
+    border-radius: 100%;
+    max-width: 270px;
     height: auto;
-  }
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+}
+
+.description .heading{
+    text-align: left;
+}
+
+.description{
+    text-align: left;
+}
+
+#homeDescription{
+    margin-top:20px;
+    font-style: italic;  
+}
+
+@media(max-width: 770px){
+    .description .heading{
+        text-align: center;
+    }
+    
+    .description{
+        text-align: center;
+    }
+    
+}

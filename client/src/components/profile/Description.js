@@ -29,7 +29,7 @@ class Description extends React.Component{
         const {content} = this.props;
         return(
             <div>
-                {!isEdit ? <p className="paragraph">{content}</p> : 
+                {!isEdit ? <p className="paragraph" dangerouslySetInnerHTML={{__html: content}}></p> : 
                 <TextArea 
                     content={content} 
                     isEdited={this.isEdited}
