@@ -13,3 +13,9 @@ export function setSkill(skill, skillCategory){
         return axios.post("/api/data/skill", {category:skillCategory, skill:skill});
     }
 }
+
+export function deleteSkill(skillName, skillCategory){
+    return dispatch =>{
+        return axios.put("/api/data/skill", {category:skillCategory, skillName:skillName});
+    }
+}

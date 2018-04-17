@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import '../../css/Skills.css';
 import SkillsCategory from "./SkillsCategory";
+import SkillForm from "./SkillForm";
 import {getSkills} from '../../redux/actions/getData';
 
 //only for test
@@ -21,18 +22,22 @@ class Skills extends React.Component{
         this.props.getSkills();
     }
     render(){
-        const {skills} = this.props
-        console.log(skills)
+        const {skills} = this.props;
+        const {isAuthenticated} = this.props.auth;
+        const categories = Object.keys(skills)
         return(
             <section id="skills">
                 <div className="heading">
                     <h2>Compétences</h2>
                 </div>
                 <div className="container">
+                    <SkillForm id="skillAddModal" category="" skill={{name: "", img:"", description:"", alt:""}} mode="create"/>
                     <div className="row">
-                        {skills.backend !== undefined && <SkillsCategory category = "backend" categoryName = "BACK END" skills = {skills.backend} />}
-                        {skills.frontend !== undefined && <SkillsCategory category = "frontend" categoryName = "FRONT END" skills = {skills.frontend} />}
+                        {categories.map((skillCategory, i)=>(
+                            <SkillsCategory key ={i} category = {skillCategory} categoryName = {skillCategory.toUpperCase()} skills = {skills[skillCategory]}/>
+                        ))}
                     </div>
+                    {isAuthenticated &&  <div className="form-group"><button className="btn btn-primary btn-sm" data-toggle="modal" data-target={"#skillAddModal"}>Add</button></div>}
                 </div>
             </section>
         )
@@ -42,11 +47,13 @@ class Skills extends React.Component{
 Skills.proptypes = {
     skills: PropTypes.object.isRequired,
     getSkills: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired,
 }
 
 function mapStateToProps(state){
     return{
-        skills: state.skills
+        skills: state.skills,
+        auth: state.auth
     }
 }
 

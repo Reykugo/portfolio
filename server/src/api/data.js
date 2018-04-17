@@ -51,16 +51,13 @@ router.post('/skill', isAuthenticate, (req, res) =>{
                     let skills = data.skills;
                     new Promise(function(resolve, reject){
                         if(isEmpty(skills) || isEmpty(skills[category])){
-                            console.log("new");
                             skills[category] = [skill];
                         }else if(!skills[category].some((item, i) => item.name === skill.name)){
-                            console.log("add");
                             skills[category].push(skill);
                         }else{
                             skills[category].map( (skillToUpdate, i)=>{
                                 if(skillToUpdate.name === skill.name){
                                     skills[category][i] = skill;
-                                    console.log("update");
                                     return;
                                 }
                             })
@@ -83,6 +80,48 @@ router.post('/skill', isAuthenticate, (req, res) =>{
     }
 })
 
+router.put("/skill", isAuthenticate, (req, res) =>{
+    if(req.session.isAdmin){
+        let category = req.body.category;
+        let skillName = req.body.skillName;
+        if(isEmpty(category) || isEmpty(skillName)){
+            return res.status(400).send({error:"Parameters are not correct"})
+        }else{
+            Data.findOne().then((data) =>{
+                if(data){
+                    let skills = data.skills;
+                    if(!skills[category]){
+                        return res.status(400).send({error:"Parameters are not correct"})
+                    }else{
+                        new Promise(function(resolve, reject){
+                            skills[category].map((skill, i)=>{
+                                if(skill.name == skillName){
+                                    skills[category].splice(i,1);
+                                    if (skills[category].length == 0){
+                                        delete skills[category]
+                                    }
+                                    resolve();
+                                    return;
+                                }
+                            })
+                        }).then(() =>{
+                            data.update({"skills": skills}).then(saved_data =>{
+                                return res.status(200).send({success:true});
+                            }).catch(e =>{
+                                return res.status(500).send({error:e});
+                            })
+                        })
+                    }
+                }else{
+                    return res.status(404).send({error:"Not found"})
+                }
+            })
+        }
+    }else{
+        return res.status(403).send({error:"Permission denied"})
+    }
+})
+
 router.get("/skills", isAuthenticate, (req, res) =>{
     if(req.session.isAdmin){
         Data.findOne().then((data)=>{
@@ -96,5 +135,7 @@ router.get("/skills", isAuthenticate, (req, res) =>{
         return res.status(403).send({error: "Permission Denied"});
     }
 })
+
+
 
 module.exports = router;
