@@ -3,7 +3,6 @@ import Proptypes from 'prop-types'
 import TextFieldGroup from '../common/TextFieldGroup';
 import {connect} from 'react-redux'
 import {login} from '../../redux/actions/authentication';
-import {Redirect} from 'react-router-dom';
 import {addFlashMessage} from '../../redux/actions/flashMessages'
 
 class LoginForm extends Component{
@@ -14,7 +13,6 @@ class LoginForm extends Component{
             password: "",
             error: '',
             isLoading: false,
-            redirect: false,
         }
         this.onSubmit = this.onSubmit.bind(this);
         this.onChange = this.onChange.bind(this);
@@ -24,7 +22,10 @@ class LoginForm extends Component{
         e.preventDefault();
         this.setState({error: '', isLoading: true});
         this.props.login(this.state).then(
-            (res) => this.setState({redirect: true}),
+            (res) => {
+                this.setState({isLoading:false});
+                document.getElementById("loginHidebtn").click()
+            },
             (err) => {
                 this.setState({isLoading:false});
                 this.props.addFlashMessage({type:'error', text: err.response.data.error})
@@ -38,15 +39,8 @@ class LoginForm extends Component{
 
     render(){
         const {username, password, isLoading} = this.state;
-        if (this.state.redirect){
-            return(
-                <Redirect to="/" push={true}/>
-            )
-        }
         return (
             <form onSubmit={this.onSubmit}>
-                <h1>Login</h1>
-
                 <TextFieldGroup
                     field="username"
                     label="Username"

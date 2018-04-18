@@ -76,10 +76,10 @@ class SkillForm extends React.Component{
                             {this.props.mode ==="create" &&  <TextFieldGroup field="category" label="Category" onChange = {this.onChange} value={category}/>}
                             <TextFieldGroup field="img" label="Image" onChange = {this.onChange} value={img}/>
                             <TextFieldGroup field="alt" label="Alt" onChange = {this.onChange} value={alt}/>
-                            <textarea form="TextAreaForm" className="form-control" rows="5" name="description" value={description} onChange={this.onChange}></textarea>
+                            <textarea form={this.props.id + "TextAreaForm"} className="form-control" rows="5" name="description" value={description} onChange={this.onChange}></textarea>
                         </div>
                         <div className="modal-footer">
-                            <form onSubmit={this.onSubmit} id="TextAreaForm">
+                            <form onSubmit={this.onSubmit} id={this.props.id + "TextAreaForm"}>
                                 <div className="form-group"><button disabled={isLoading} className="btn btn-primary btn-sm">Apply</button></div>
                             </form>
                             {isAuthenticated && this.props.mode === "edit" &&

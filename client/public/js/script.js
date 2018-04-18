@@ -8,6 +8,21 @@ $(function(){
 
     });
 
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();   
+    });
+
+    $(document).ready(function() {
+        console.log(window.location.href.indexOf('login'))
+        if(window.location.href.indexOf('login') != -1) {
+          $('#loginModal').modal('show');
+        }else{
+            $('#loginModal').modal('hide');
+        }
+      
+    });
+
+
       /*$('#contact-form').submit(function(e) {
         e.preventDefault();
         $('.comments').empty();

@@ -19,12 +19,12 @@ class NavigationBar extends Component{
         );
 
         return (
-            <nav className="navbar navbar-expand-sm fixed-top  navbar-dark bg-dark">
-                <button className="navbar-toggler collapsed navbar-toggler-right" type="button" data-toggle="collapse" data-target="#myNavbar" aria-controls="myNavBar" aria-expanded="false" aria-label="Toggle navigation">
+            <nav className="navbar navbar-expand-md fixed-top  navbar-dark bg-dark">
+                <button className="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#myNavbar" aria-controls="myNavBar" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <div id="myNavbar" className="collapse navbar-collapse">
-                    <ul className="navbar-nav  mx-auto">
+                <div id="myNavbar" className="collapse navbar-collapse justify-content-md-center">
+                    <ul className="navbar-nav">
                         <li className="nav-item"><a className="nav-link" href="#about" >Mon profil</a></li>
                         <li className="nav-item"><a className="nav-link" href="#skills">Compétences</a></li>
                         <li className="nav-item"><a className="nav-link" href="#experience">Expériences</a></li>

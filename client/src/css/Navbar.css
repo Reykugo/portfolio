@@ -3,9 +3,7 @@
   font-size: 12px;
   letter-spacing: 4px;
   text-transform: uppercase;
-  font-weight: bold;
-  border-bottom: 1px solid white;
-  
+  font-weight: bold;  
 }
 .navbar .navbar-nav {
   float: none;
@@ -21,4 +19,11 @@
 
 .navbar .navbar-collapse {
   text-align: right;
+}
+
+@media(max-width:770px){
+  .navbar-nav li a:hover{
+    border-radius:0px;
+  }
+  
 }
