@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import LoginForm from './LoginForm'
-
+import FlashMessagesList from '../flash/FlashMessagesList';
 class LoginPage extends Component{
     render(){
         return (
@@ -12,6 +12,7 @@ class LoginPage extends Component{
                             <button id={"loginHidebtn"} type="button" className="close" data-dismiss="modal">&times;</button>
                         </div>
                             <div className="modal-body">
+                            <FlashMessagesList/>
                             <LoginForm />
                         </div>
                     </div>

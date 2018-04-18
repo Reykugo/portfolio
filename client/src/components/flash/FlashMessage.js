@@ -6,6 +6,9 @@ class FlashMessage extends Component{
     constructor(props){
         super(props);
         this.onClick = this.onClick.bind(this);
+        setTimeout(
+                () => {this.props.deleteFlashMessage(this.props.message.id);}
+        , 3000);
     }
     onClick(){
         this.props.deleteFlashMessage(this.props.message.id);

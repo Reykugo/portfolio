@@ -5,6 +5,7 @@ import {setSkill, deleteSkill} from '../../redux/actions/sendData';
 import {getSkills} from '../../redux/actions/getData';
 import {addFlashMessage} from '../../redux/actions/flashMessages'
 import TextFieldGroup from '../common/TextFieldGroup';
+import FlashMessagesList from '../flash/FlashMessagesList';
 
 class SkillForm extends React.Component{
     constructor(props){
@@ -73,6 +74,7 @@ class SkillForm extends React.Component{
                             <button id={this.props.id + "hidebtn"} type="button" className="close" data-dismiss="modal">&times;</button>
                         </div>
                         <div className="modal-body">
+                            <FlashMessagesList />
                             {this.props.mode ==="create" &&  <TextFieldGroup field="category" label="Category" onChange = {this.onChange} value={category}/>}
                             <TextFieldGroup field="img" label="Image" onChange = {this.onChange} value={img}/>
                             <TextFieldGroup field="alt" label="Alt" onChange = {this.onChange} value={alt}/>

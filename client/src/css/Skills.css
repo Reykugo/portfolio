@@ -42,11 +42,11 @@
     padding: 3px 8px;
     color: #fff;
     text-align: center;
-    background-color: #848FA5;
+    background-color: #3c4859;
     border-radius: .25rem;
     white-space: pre-wrap;
 }
 
 .tooltip.bs-tooltip-right .arrow:before {
-    border-right-color: #848FA5 !important;
+    border-right-color: #3c4859 !important;
 }

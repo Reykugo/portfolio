@@ -1,14 +1,24 @@
 import React, { Component } from 'react';
 import NavigationBar from './NavigationBar';
-import FlashMessagesList from './flash/FlashMessagesList';
-import LoginPage from "./login/LoginPage"
+import LoginPage from "./login/LoginPage";
+import Profile from './profile/Profile'
+import Skills from './skills/Skills'
+import Experience from "./Experience"
+import Home from "./Home"
+import  '../css/Popup.css';
+
 class App extends Component {
   render() {
     return (
       <div>
         <NavigationBar/>
-        <FlashMessagesList/>
         <LoginPage />
+        
+        <Home/>
+        <Profile/>
+				<Skills/>
+				<Experience/>
+        
         {this.props.children}
       </div>
     );
