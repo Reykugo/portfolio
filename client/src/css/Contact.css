@@ -1,0 +1,70 @@
+footer h5, footer h3, footer p {
+    color: #fff;
+    font-weight: normal;
+}
+
+
+footer {
+    padding: 20px 0 40px;
+    background-color: #3c4859 !important;
+    color: white;
+  }
+  
+  footer .glyphicon {
+    font-size: 25px;
+    margin: 20px;
+    color: #903749;
+    height: 30px;
+  }
+  
+  footer .glyphicon:hover {
+    font-size: 27px;
+  }
+  
+  footer h5, footer h3, footer p {
+    color: #fff;
+    font-weight: normal;
+  }
+  
+  footer a {
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  footer a:hover {
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  footer a:visited {
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  .icons {
+    color: #fff;
+    font-size: 30px;
+    margin-top: 15px;
+    margin-right: 10px;
+    display: inline-block;
+  }
+
+  .icon-linkedin:hover .icon-github:hover{
+      font-size: 27px;
+  }
+
+  .icon-github:hover{
+    font-size: 27px;
+  }
+  
+  .icons a {
+    color: #fff;
+    font-size: 35px;
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+
