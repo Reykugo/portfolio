@@ -25,11 +25,13 @@ class NavigationBar extends Component{
                 </button>
                 <div id="myNavbar" className="collapse navbar-collapse justify-content-md-center">
                     <ul className="navbar-nav">
+                        <li className="nav-item"><a className="nav-link" href="#home" >Home</a></li>
                         <li className="nav-item"><a className="nav-link" href="#about" >Mon profil</a></li>
                         <li className="nav-item"><a className="nav-link" href="#skills">Compétences</a></li>
                         <li className="nav-item"><a className="nav-link" href="#experience">Expériences</a></li>
                         <li className="nav-item"><a className="nav-link" href="#education">Formations</a></li>
                         <li className="nav-item"><a  className="nav-link" href="#portfolio">Portfolio</a></li>
+                        <li className="nav-item"><a  className="nav-link" href="#contact">Contact</a></li>
                         {isAuthenticated && userLinks}
                     </ul>
                 </div>

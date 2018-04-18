@@ -5,6 +5,7 @@ import Profile from './profile/Profile'
 import Skills from './skills/Skills'
 import Experience from "./Experience"
 import Home from "./Home"
+import "../css/App.css"
 import  '../css/Popup.css';
 
 class App extends Component {
