@@ -24,7 +24,7 @@ class Profile extends React.Component {
 						<h2>à propos</h2>
 					</div>
 					<div className="row">
-						<div className="col-md-4 profile-picture">
+						<div className="col-md-4 col-sm-8 profile-picture">
 							<img src="./img/profile.jpg" alt="Guillaume"/>
 						</div>
 						<div className = "col-md-8 description">
