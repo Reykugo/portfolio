@@ -9,7 +9,7 @@ class Skill extends React.Component {
         const {isAuthenticated, user} = this.props.auth;
         const category = this.props.category
         return(
-            <div className="col-md-4 text-center">
+            <div className="col-md-4 col-sm-4 col-lg-3 col-6 text-center">
                 <SkillForm id={name+ category+ "ModalEdit"} category={category} skill={this.props.skill} mode="edit"/>
                 <div className="skill"><img src={img} alt={alt} data-toggle="tooltip" data-placement="right" title={description}/></div>
                 {isAuthenticated && user.isAdmin &&

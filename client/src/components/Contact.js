@@ -8,7 +8,8 @@ class Contact extends React.Component{
                     <div className="row">
                         <div className="col-sm-4 text-center">
                             <h3>Réseaux Sociaux</h3>
-                            <div className="icons">
+                            <hr/>
+                            <div>
                                 <a href="https://www.linkedin.com/in/guillaume-n-8b46a498/"><i className="fa fa-linkedin-square icons icon-linkedin" aria-hidden="true"></i></a>
                                 <a href="https://github.com/reykugo"><i className="fa fa-github-square icons icon-github" aria-hidden="true"></i></a>
                             </div>
@@ -21,11 +22,12 @@ class Contact extends React.Component{
                         </div>
                         <div className="col-sm-4 text-center">
                             <h3>Me contacter</h3>
+                            <hr/>
                             <div>
                                 <a href="mailto:guillaumenougier@gmail.com"><i className="fa fa-envelope-o icons icon-mail" aria-hidden="true"></i></a>
                                 <p>guillaumenougier@gmail.com</p>
                             </div>
-                            <div>
+                            <div id="phoneNumber">
                                 <i className="fa fa-phone icons icon-phone" aria-hidden="true"></i>
                                 <p>06.19.09.60.14</p>
                             </div>

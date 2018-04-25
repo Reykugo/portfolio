@@ -51,7 +51,7 @@ class SkillForm extends React.Component{
             (res) => {
                 this.setState({isLoading: false});
                 if(this.props.mode === "create"){
-                    this.setState({name:"", img:"", alt:"", description:""});
+                    this.setState({name:"", img:"", alt:"", description:"", category:""});
                 }
                 this.props.getSkills();
                 document.getElementById(this.props.id + "hidebtn").click()

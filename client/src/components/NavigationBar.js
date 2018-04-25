@@ -19,7 +19,7 @@ class NavigationBar extends Component{
         );
 
         return (
-            <nav className="navbar navbar-expand-md fixed-top  navbar-dark bg-dark">
+            <nav className="navbar navbar-expand-lg fixed-top  navbar-dark bg-dark">
                 <button className="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#myNavbar" aria-controls="myNavBar" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
