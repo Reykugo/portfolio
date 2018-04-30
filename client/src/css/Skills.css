@@ -1,5 +1,5 @@
 #skills{
-    background-color:#848FA5;
+    background-color:#B0B7C5;
     text-align:center;
     padding-top:100px;
     color:white;
@@ -8,23 +8,15 @@
 .skill{
     max-height:100px;
     line-height: 100px;
-    margin:10px; 
+    margin:auto; 
 }
 
-.skill:hover{
-   opacity: 0.5;
-}
-
-.skillsContainer{
+.skills-category{
+    border-radius: 10px;
     background-color: white;
     margin-top: 15px;
-    
-}
-
-.skillsCategory{
-    color: #848FA5;
-    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.12);
-    /*border-radius: 20px 20px 0px 0px;*/
+    color: #6D7688;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.12); 
 }
 
 #skills img{
@@ -35,31 +27,86 @@
    
 }
 
-.tooltip-inner {
-    max-width: 300px;
-    padding: 3px 8px;
-    color: #fff;
-    text-align: center;
-    background-color: #3c4859;
-    border-radius: .25rem;
-    white-space: pre-wrap;
+.skill-container, .skill-container-2{
+    margin-right:10px;
+    margin-left:10px;
+    border-radius: 10px;
+    padding-bottom:10px;
 }
 
-.tooltip.bs-tooltip-right .arrow:before {
-    border-right-color: #3c4859 !important;
+.skill-container{
+    border-top:1px solid  #2e8ece;
+}
+
+.skill-container .skill-name{
+    color: #2e8ece;;
+}
+.skill-container-2{
+    border-top:1px solid  #e91e63;
+}
+
+.skill-container-2 .skill-name{
+    color:#e91e63
 }
 
 
-.overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 0;
-  transition: .5s ease;
-  background-color: #008CBA;
+.skill-container:hover .skill-name{
+    color:white;
+    background-color:#2e8ece;
+    border-radius:10px;
 }
 
+.skill-container-2:hover .skill-name{
+    color:white;
+    background-color:#e91e63;
+    border-radius:10px;
+}
+
+.skill-name{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    display: inline-block;
+    width: 100%;
+}
+
+.skill-name span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.skill-name span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+  
+.skill-name-hover span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+  
+.skill-name-hover:hover span {
+    padding-right: 25px;
+}
+  
+.skill-name-hover:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.skill-description{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align:left;
+    font-size: 14px;
+    font-style: italic;
+    margin:auto;
+}

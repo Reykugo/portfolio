@@ -2,14 +2,18 @@ import React from "react";
 import PropTypes from "prop-types";
 import Skill from "./Skill"
 
+function getColor(index){
+
+}
+
 const SkillsCategory = ({category, categoryName, skills}) =>{
     return(
         <div className ="col-md-6">
-            <div className="skillsContainer">
-                <div className="skillsCategory"><h3>{categoryName}</h3></div>
-                <div className="row justify-content-center">
+            <div className="skills-category">
+                <h3>{categoryName}</h3>
+                <div className="">
                     {skills.map((skill, i)=>(
-                        <Skill category={category} skill={skill} key={i}/>
+                        <Skill category={category} skill={skill} key={i} id={i}/>
                     ))}
                 </div>
             </div>
