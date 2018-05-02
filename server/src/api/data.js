@@ -1,11 +1,14 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import isEmpty from 'lodash/isEmpty';
+import shortid from "shortid";
 import {isAuthenticate} from '../utils/functions'
 
 var router = express.Router();
 var Data = mongoose.model('Data');
 
+
+/************************************PROFILE DESCRIPTION***********************************************/
 
 router.get('/profileDescription', (req, res)=>{
     Data.findOne().then((data)=>{
@@ -36,6 +39,17 @@ router.post('/profileDescription', isAuthenticate, (req, res)=>{
     }
 })
 
+/************************************SKILLS ***********************************************/
+
+router.get("/skills", (req, res) =>{
+    Data.findOne().then((data)=>{
+        if (data){
+            return res.status(200).send({success:true, skills: data.skills});
+        }else{
+            return res.status(404).send({error: "Not found"});
+        }
+    })
+})
 
 router.post('/skill', isAuthenticate, (req, res) =>{
     if(req.session.isAdmin){
@@ -122,14 +136,52 @@ router.put("/skill", isAuthenticate, (req, res) =>{
     }
 })
 
-router.get("/skills", (req, res) =>{
+/************************************EXPERIENCES***********************************************/
+
+router.get('/experiences', (req, res) =>{
     Data.findOne().then((data)=>{
         if (data){
-            return res.status(200).send({success:true, skills: data.skills});
+            return res.status(200).send({success:true, skills: data.experiences.reverse()});
         }else{
             return res.status(404).send({error: "Not found"});
         }
     })
+})
+
+router.post('/experiences', isAuthenticate, (req,res) =>{
+    if(req.session.isAdmin){
+        var experience = req.body;
+        if(isEmpty(experience.type) || isEmpty(experience.date) || isEmpty(experience.job) || isEmpty(experience.company) ||isEmpty(experience.description)){
+            return res.status(400).send({error:"Parameters are not correct"})
+        }else{
+            Data.findOne().then(data =>{
+                if(data){
+                    var experiences = data.experiences;
+
+                    if(isEmpty(experience.id)){
+                        experience.id = shortid.generate()
+                        experiences.push(experience);
+                    }else{
+                        experiences.map( (experiencetoUpdate, i)=>{
+                            if(experiencetoUpdate.id === experience.id){
+                                experiences[i] = experience;
+                                return;
+                            }
+                        })
+                    }
+                    data.update({"experiences": experiences}).then((saved_data)=>{
+                        return res.status(200).send({success:true});
+                    }).catch(err=>{
+                        return res.status(500).send({error:e})
+                    })
+                }else{
+                    return res.status(404).send({error:"Not found"});
+                }
+            })
+        }
+    }else{
+        return res.status(403).send({error:"Permission Denied"});
+    }
 })
 
 
